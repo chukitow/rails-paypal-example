@@ -33,6 +33,8 @@
   </div>
   <div class="card-footer">
     <%= link_to "Continue shopping", products_path, class: 'btn btn-primary' %>
-    <%= link_to "Checkout", '#', class: 'btn btn-success' %>
+    <% unless current_cart.line_items.empty? %>
+      <%= link_to "Checkout", paypal_checkouts_path, class: 'btn btn-success', method: :post  %>
+    <% end  %>
   </div>
 </div>

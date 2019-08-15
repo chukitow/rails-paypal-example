@@ -1,0 +1,12 @@
+test: &default
+  mode: sandbox
+  client_id: <%= Rails.application.credentials.paypal_client_id %>
+  client_secret: <%= Rails.application.credentials.paypal_client_secret %>
+
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+  mode: live

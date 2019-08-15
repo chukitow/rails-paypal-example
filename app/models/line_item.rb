@@ -11,4 +11,14 @@ class LineItem < ApplicationRecord
   def update_product!
     increment!(:quantity)
   end
+
+  def to_paypal
+    {
+      name: self.product_name,
+      sku: self.id,
+      price: self.product_price,
+      currency: 'USD',
+      quantity: self.quantity
+    }
+  end
 end

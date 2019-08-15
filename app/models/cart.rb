@@ -12,4 +12,8 @@ class Cart < ApplicationRecord
       line_item.increment!(:quantity)
     end
   end
+
+  def total
+    line_items.joins(:product).sum('products.price * line_items.quantity')
+  end
 end
