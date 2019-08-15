@@ -1,11 +1,5 @@
-require 'paypal-sdk-rest'
-
 class Paypal::CheckoutsController < ApplicationController
   include PayPal::SDK::REST
-  include PayPal::SDK::Core::Logging
-
-  def index
-  end
 
   def create
     payment = Payment.new({
