@@ -15,7 +15,7 @@ class Paypal::CheckoutsController < ApplicationController
         {
           amount: {
             total: current_cart.total,
-            currency: 'USD',
+            currency: 'MXN',
           },
           description: 'Pago de productos',
           item_list: {

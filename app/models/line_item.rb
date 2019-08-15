@@ -17,7 +17,7 @@ class LineItem < ApplicationRecord
       name: self.product_name,
       sku: self.id,
       price: self.product_price,
-      currency: 'USD',
+      currency: 'MXN',
       quantity: self.quantity
     }
   end
