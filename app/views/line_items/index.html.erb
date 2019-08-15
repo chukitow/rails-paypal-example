@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header text-center">
+    Cart
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Line items</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Produt</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_cart.line_items.each do |line_item| %>
+          <tr>
+            <td><%= line_item.product_name %></td>
+            <td><%= line_item.quantity %></td>
+            <td><%= number_to_currency(line_item.product_price) %></td>
+            <td><%= number_to_currency(line_item.subtotal) %></td>
+            <td>
+              <%= link_to line_item, method: :delete do%>
+                <span class="fa fa-trash">
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <%= link_to "Continue shopping", products_path, class: 'btn btn-primary' %>
+    <%= link_to "Checkout", '#', class: 'btn btn-success' %>
+  </div>
+</div>
