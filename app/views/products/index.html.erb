@@ -1,0 +1,18 @@
+<h1 class="text-center">Products</h1>
+
+<% @products.in_groups_of(3, false).each do |products| %>
+  <div class="row card-row">
+    <% products.each do |product| %>
+      <div class="col-sm-4">
+        <div class="card">
+          <%= image_tag('boardgame.jpg', class: 'card-img-top') %>
+          <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <p class="card-text"><%= number_to_currency(product.price) %></p>
+            <a href="#" class="card-link">Add to cart</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
